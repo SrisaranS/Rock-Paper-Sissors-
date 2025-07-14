@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Rock Paper Scissors</title>
+  </head>
+    <body>
+     <h1>Rock Paper Scissors against the best AI </h1>
+      <h2>Pick one!!!</h2>
+
+       <p id="input"> </p>
+       <p id ="result"> </p>
+       <p id ="scoreboard"></p>
+
+      <button onclick="user = 0; document.getElementById('input').textContent = 'Pick: Rock'; Checker();">Rock</button>
+      <button onclick="user = 1; document.getElementById('input').textContent = 'Pick: Paper'; Checker();">Paper</button>
+      <button onclick="user = 2; document.getElementById('input').textContent = 'Pick: Scissors'; Checker();">Scissors</button>
+      <button onclick="document.getElementById('scoreboard').textContent = 'Wins: '+score[0]+' Loses: '+score[1]+' Ties: '+ score[2];"> ScoreCheck</button>
+      <button onclick="score[0]=0;score[1]=0;score[2]=0; alerting();document.getElementById('scoreboard').textContent = 'Wins: '+score[0]+' Loses: '+score[1]+' Ties: '+ score[2];""> Reset </button>
+      <script>
+        
+        let user = 0; // 0= rock, 1=paper, 2= scissors
+        let score = [0,0,0];// 0=wins ,1=loses, 2=ties
+        let aI = Math.floor(Math.random() * 3);
+
+        function Checker(){
+        
+        if(user === aI)
+        {
+         document.getElementById("result").textContent = "\nIt was a tie\n";
+         score[0]++;
+        }
+        else if((user ==0 && aI ==1 )||(user ==1 && aI ==2 )||(user ==2 && aI ==0 ) )
+        {
+          document.getElementById("result").textContent = "\n\You Lost\n";
+          score[1]++;
+        }
+        else
+        {
+          document.getElementById("result").textContent = "\n\You Won!!!\n";
+          score[2]++;
+        }
+
+        aI = Math.floor(Math.random() * 3);
+      }
+
+      function alerting()
+      {
+        alert("THE SCORE HAS BEEN RESET");
+      }
+      Checker();
+
+      </script>
+
+   </body>
+
+</html>
